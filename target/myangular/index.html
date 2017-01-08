@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="application/x-javascript" src="js/lib/angular/angular.js"></script>
+<script type="application/x-javascript" src="js/lib/angular/angular-resource.min.js"></script>
+<script type="application/x-javascript" src="js/lib/jquery/jquery.min.js"></script>
+<script type="application/x-javascript" src="app.js"></script>
+<script type="application/x-javascript" src="js/config/appLevelConfig.js"></script>
+<script type="application/x-javascript" src="js/constants/appLevelConstants.js"></script>
+<script type="application/x-javascript" src="js/services/userService.js"></script>
+<script type="application/x-javascript" src="js/controllers/myAppCtrl.js"></script>
+
+</head>
+<body ng-app="myAngularApp" ng-controller="myAppCtrl">
+ <!-- <a href="myFirstPage?name=venki&age=28">Click here!</a> -->
+ <a href="javascript:void(0);" ng-click="getSingleUser();">Get Single User!</a></br>
+ <a href="javascript:void(0);" ng-click="getAllUsers();">Get Multiple User!</a>
+</body>
+</html>

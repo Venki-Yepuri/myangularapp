@@ -1,0 +1,1 @@
+var myAngularApp = angular.module('myAngularApp', ['ngResource']);
