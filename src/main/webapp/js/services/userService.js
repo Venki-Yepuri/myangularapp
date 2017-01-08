@@ -56,8 +56,16 @@ myAngularApp
 									deferred.reject(errorResponse);
 								};
 
-								$resource(DataURLS.getAllUsers.stubUri).get({},
-										success, error);
+								//$resource(DataURLS.getAllUsers.stubUri).get({},
+								//		success, error);
+								
+								$http.get("rest/getUsers/").success(
+										function(data, headers) {
+											deferred.resolve(data);
+										}).error(function(data) {
+											deferred.reject(data);
+										});
+								
 								return deferred.promise;
 							};
 							return {
