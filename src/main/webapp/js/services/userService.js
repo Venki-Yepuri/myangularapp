@@ -16,8 +16,8 @@ myAngularApp
 								"Cache-Control" : "no-cache=set-cookie",
 								"Expires" : "-1",
 								"Accept" : "application/json",
-								"Content-Type" : "application/json",
-								"Accept-Charset" : "utf-8"
+								"Content-Type" : "application/json"
+								//"Accept-Charset" : "utf-8"
 
 							};
 							var _getSingleUser = function(requestObject) {
@@ -30,18 +30,18 @@ myAngularApp
 								var error = function(errorResponse) {
 									deferred.reject(errorResponse);
 								};
+								
+								//resource(url, paramDefaults, actions)
+								var singleUserService = $resource("rest/getUser",{}, {"getUser" : {method : "GET",headers : headers}});
+								singleUserService["getUser"]({}, success,error);
+								
 
-								// $resource(DataURLS.getSingleUser.stubUri).get({},success,
-								// error);
-								//$resource("/rest/getUser").get({},success,
-								//error);
-
-								$http.get("rest/getUser/").success(
+								/*$http.get("rest/getUser/").success(
 								function(data, headers) {
 									deferred.resolve(data);
 								}).error(function(data) {
 									deferred.reject(data);
-								});
+								});*/
 								
 								return deferred.promise;
 							};
@@ -55,16 +55,16 @@ myAngularApp
 								var error = function(errorResponse) {
 									deferred.reject(errorResponse);
 								};
-
-								//$resource(DataURLS.getAllUsers.stubUri).get({},
-								//		success, error);
+								//resource(url, paramDefaults, actions)	
+							    var multiUserService = $resource("rest/getUsers",{}, {"getUsers" : {method : "GET", headers : headers, isArray: true}});
+							    multiUserService["getUsers"]({}, success,error);
 								
-								$http.get("rest/getUsers/").success(
+								/*$http.get("rest/getUsers/").success(
 										function(data, headers) {
 											deferred.resolve(data);
 										}).error(function(data) {
 											deferred.reject(data);
-										});
+										});*/
 								
 								return deferred.promise;
 							};
