@@ -4,6 +4,8 @@ myAngularApp.controller('myAppCtrl', ['$scope','$log',
 	  
 	 $scope.user = {};
 	 $scope.users = {};
+	 $scope.userData = {};
+	 
 	 $scope.getSingleUser = function() {
 				userService.getSingleUser().then(
 						function(successResponse) {
@@ -20,6 +22,15 @@ myAngularApp.controller('myAppCtrl', ['$scope','$log',
 									+ $scope.users);
 						});
 			};
+			
+	 $scope.saveUser = function() {
+		userService.saveUser($scope.userData).then(
+				function(successResponse) {
+					$scope.user = angular.toJson(successResponse);
+					logger.info("myAppCtrl:: saveUser() -> "
+							+ $scope.user);
+				});
+	 };
   
 	  
 	}]);

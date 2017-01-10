@@ -17,5 +17,17 @@
  <!-- <a href="myFirstPage?name=venki&age=28">Click here!</a> -->
  <a href="javascript:void(0);" ng-click="getSingleUser();">Get Single User!</a></br>
  <a href="javascript:void(0);" ng-click="getAllUsers();">Get Multiple User!</a>
+	<div>
+
+		<form ng-submit="saveUser();" name="userForm">
+			<!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+			<label>firstName:</label>
+		    <input type="text" name="firstName" ng-model="userData.firstName">
+			<label>lastName:</label>
+			<input type="text" name="lastName" ng-model="userData.lastName">
+			<!-- SUBMIT BUTTON -->
+			<button type="submit">Submit</button>
+		</form>
+	</div>
 </body>
 </html>
